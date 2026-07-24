@@ -39,7 +39,7 @@ public class Box<T> {
     public static <T> Box<T> getBox() {
 //Внутри метода getBox мы как раз и пишем return new Box<>();
 // Мы создаём новый объект коробки и возвращаем его — пустым, но готовым к использованию.
-        return new Box<>();
+        return new Box<T>();
     }
 }
 
