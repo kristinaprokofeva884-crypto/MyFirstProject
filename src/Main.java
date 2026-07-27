@@ -1,6 +1,8 @@
 //Подключаем класс ObjectMapper - главный инструмент для работы с JSON
 //Он умеет превращать JSON в объекты Java и обратно
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 //Создаем внутринний класс CreateUserRequest с полями по суловию задачи
 class CreateUserRequest {
     //Создаем классу приватное поле name в тип String
@@ -50,7 +52,7 @@ class UserService {
     //Внутри передаем метод buildRequestBody-который создает JSON-строку из параметров объекта
     //buildRequestBody - имя метода: "построить тело запроса".
     //throws Exception - метод может выбросить исключение (если что-то пойдёт не так).
-    public static String buildRequestBody(String name, String job) throws Exception {
+    public String buildRequestBody(String name, String job) throws Exception {
         //1.Создаём объект CreateUserRequest с переданными данными(его конструктором)
         // Передаём в него имя (name) и должность (job),которые пришли в метод.
         CreateUserRequest request = new CreateUserRequest(name, job);
@@ -63,16 +65,16 @@ class UserService {
         return mapper.writeValueAsString(request);
     }
 }
-    public class Main {
-        // Точка входа в программу.Выполнение программы и вывод в консоль
-        public static void main(String[] args) throws Exception {
-            //1.Вызываем метод buildRequestBody с параметрами.
-            //Мы вызывали ранее написанный метод buildRequestBody в главном классе
-            //Сечас мы передаём ему конкретные имя и должность для создания объекта
-            //Мы сохраняем все значения в переменную json и выводим в консоль
-            String json = UserService.buildRequestBody("Анна", "QA Engineer");
-            //Теперь выводим значения на экран переменной,в которой лежат все конкретные значения
-            System.out.println(json);
-        }
+
+public class Main {
+    // Точка входа в программу.Выполнение программы и вывод в консоль
+    public static void main(String[] args) throws Exception {
+        // 1. Создаём объект UserService
+        UserService userService = new UserService();
+        // 2. Вызываем метод через объект
+        String json = userService.buildRequestBody("Анна", "QA Engineer");
+        //Теперь выводим значения на экран переменной,в которой лежат все конкретные значения
+        System.out.println(json);
     }
+}
 
