@@ -45,8 +45,8 @@ class CreateUserRequest {
 
     }
 }
-//Объявляем наш главный класс HelloWorld для точки входа.
-public class Name {
+
+class UserService {
     //Внутри передаем метод buildRequestBody-который создает JSON-строку из параметров объекта
     //buildRequestBody - имя метода: "построить тело запроса".
     //throws Exception - метод может выбросить исключение (если что-то пойдёт не так).
@@ -58,25 +58,21 @@ public class Name {
         //mapper - просто переменная
         ObjectMapper mapper = new ObjectMapper();
         //3.Превращаем объект в JSON-строку
-        // .writeValueAsString() — это метод, который превращает Java-объект в JSON-строку.
-        //Полученную JSON-строку сохраняем в переменную json.
-        String Json = mapper.writeValueAsString(request);
-        //Возвращаем полученную JSON-строку туда,откуда метод был вызван.
-        return Json;
-    }
-
-    // Точка входа в программу.Выполнение программы и вывод в консоль
-    public static void main(String[] args) throws Exception {
-        //1.Вызываем метод buildRequestBody с параметрами.
-        //Мы вызывали ранее написанный метод buildRequestBody в главном классе
-        //Сечас мы передаём ему конкретные имя и должность для создания объекта
-        //Мы сохраняем все значения в переменную json и выводим в консоль
-        String json = buildRequestBody("Анна", "QA Engineer");
-        //Теперь выводим значения на экран переменной,в которой лежат все конкретные значения
-        System.out.println(json);
+        // .writeValueAsString() — это метод, который превращает Java-объект в JSON-строку и возвращаем
+        //через return метод для request
+        return mapper.writeValueAsString(request);
     }
 }
-
-
-
+    public class Main {
+        // Точка входа в программу.Выполнение программы и вывод в консоль
+        public static void main(String[] args) throws Exception {
+            //1.Вызываем метод buildRequestBody с параметрами.
+            //Мы вызывали ранее написанный метод buildRequestBody в главном классе
+            //Сечас мы передаём ему конкретные имя и должность для создания объекта
+            //Мы сохраняем все значения в переменную json и выводим в консоль
+            String json = UserService.buildRequestBody("Анна", "QA Engineer");
+            //Теперь выводим значения на экран переменной,в которой лежат все конкретные значения
+            System.out.println(json);
+        }
+    }
 
