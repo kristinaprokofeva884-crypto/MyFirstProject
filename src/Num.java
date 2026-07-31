@@ -14,7 +14,7 @@ interface Number2Generator<T extends Number> {
         //Синтаксис если используеи ::(ссылку)
         //MyGenerator3 - класс
         //cond - ссылка на метод в этом классе
-        return MyGenerator3 ::cond;  // ← ССЫЛКА НА МЕТОД
+        return MyGenerator3 ::cond;
     }
     // ТЕСТИРОВАНИЕ
     public static void main(String[] args) {
