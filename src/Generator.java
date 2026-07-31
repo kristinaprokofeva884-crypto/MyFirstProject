@@ -4,7 +4,7 @@
 //NumberGenerator - название интерфейса
 //<T extends Number> - дженерик, T должен быть Number или его наследником
 @FunctionalInterface
-interface NumberGenerator<T extends Number>{
+interface NumberGenerator1<T extends Number>{
     //Пишем метод boolean cond(T arg) - абстрактный метод
     //Который принимает число типа T и через boolean возвращает true или false
     // cond -  метод мы будем переопределять через лямбду
